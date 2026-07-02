@@ -19,7 +19,7 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
+  pull-requests: read
 
 jobs:
   promote:
@@ -40,7 +40,7 @@ jobs:
       - name: Validate source
         run: python3 scripts/validate-skills.py
 
-      - name: Open promotion PR
+      - name: Prepare promotion PR branch
         run: |
           set -euo pipefail
 
@@ -78,35 +78,37 @@ jobs:
           git checkout -B "${promotion_branch}" "${source_sha}"
           git push origin "HEAD:${promotion_branch}"
 
-          cat > pr-body.md <<EOF
-          Promotes \`${SOURCE_BRANCH}\` to \`${TARGET_BRANCH}\`.
+          compare_url="https://github.com/${GITHUB_REPOSITORY}/compare/${TARGET_BRANCH}...${promotion_branch}?expand=1"
 
-          Source commit: \`${source_sha}\`
-          Target before promotion: \`${target_sha}\`
-
-          Verification before PR creation:
-          - \`python3 scripts/validate-skills.py\`
-          EOF
+          {
+            echo "Prepared promotion branch: \`${promotion_branch}\`"
+            echo
+            echo "Open PR: ${compare_url}"
+            echo
+            echo "Suggested title:"
+            echo "\`chore(skills): promote ${SOURCE_BRANCH} to ${TARGET_BRANCH}\`"
+            echo
+            echo "Suggested body:"
+            echo
+            echo "Promotes \`${SOURCE_BRANCH}\` to \`${TARGET_BRANCH}\`."
+            echo
+            echo "Source commit: \`${source_sha}\`"
+            echo "Target before promotion: \`${target_sha}\`"
+            echo
+            echo "Verification before PR creation:"
+            echo "- \`python3 scripts/validate-skills.py\`"
+          } >> "${GITHUB_STEP_SUMMARY}"
 
           if [ -n "${TAG_NOTE}" ]; then
             {
               echo
               echo "Tagging:"
               echo "- ${TAG_NOTE}"
-            } >> pr-body.md
+            } >> "${GITHUB_STEP_SUMMARY}"
           fi
 
           {
             echo
             echo "Manual gate after merge:"
             echo "- ${POST_MERGE_GATE}"
-          } >> pr-body.md
-
-          pr_url="$(gh pr create \
-            --repo "${GITHUB_REPOSITORY}" \
-            --base "${TARGET_BRANCH}" \
-            --head "${promotion_branch}" \
-            --title "chore(skills): promote ${SOURCE_BRANCH} to ${TARGET_BRANCH}" \
-            --body-file pr-body.md)"
-
-          echo "Promotion PR: ${pr_url}" >> "${GITHUB_STEP_SUMMARY}"
+          } >> "${GITHUB_STEP_SUMMARY}"
