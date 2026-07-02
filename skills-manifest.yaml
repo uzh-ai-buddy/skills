@@ -1,0 +1,42 @@
+version: 1
+sources:
+  aibuddy-skills:
+    path: skills/aibuddy
+    envs: [dev, stg, prd]
+    skills:
+      - id: librechat-artifacts-core
+        path: librechat-artifacts-core
+      - id: librechat-artifacts-markdown
+        path: librechat-artifacts-markdown
+      - id: librechat-artifacts-navigation
+        path: librechat-artifacts-navigation
+      - id: librechat-artifacts-procedure-decision-tree
+        path: librechat-artifacts-procedure-decision-tree
+      - id: librechat-artifacts-reusable-documents
+        path: librechat-artifacts-reusable-documents
+      - id: librechat-artifacts-study-planner
+        path: librechat-artifacts-study-planner
+      - id: librechat-artifacts-weekly-timetable
+        path: librechat-artifacts-weekly-timetable
+      - id: mcp-course-data
+        path: mcp-course-data
+      - id: mcp-doc-query
+        path: mcp-doc-query
+      - id: mcp-rooms
+        path: mcp-rooms
+      - id: mcp-web-index
+        path: mcp-web-index
+      - id: oec-domain-knowledge
+        path: oec-domain-knowledge
+      - id: oec-response-examples
+        path: oec-response-examples
+      - id: wb-advising
+        path: wb-advising
+      - id: wb-domain-knowledge
+        path: wb-domain-knowledge
+  eduai-skills:
+    path: skills/eduai
+    envs: [dev, stg, prd]
+    skills:
+      - id: eduai-issp-core
+        path: eduai-issp-core
