@@ -1,0 +1,112 @@
+name: Promote skills branch
+
+on:
+  workflow_call:
+    inputs:
+      source_branch:
+        required: true
+        type: string
+      target_branch:
+        required: true
+        type: string
+      post_merge_gate:
+        required: true
+        type: string
+      tag_note:
+        required: false
+        type: string
+        default: ""
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  promote:
+    runs-on: ubuntu-24.04
+    env:
+      SOURCE_BRANCH: ${{ inputs.source_branch }}
+      TARGET_BRANCH: ${{ inputs.target_branch }}
+      POST_MERGE_GATE: ${{ inputs.post_merge_gate }}
+      TAG_NOTE: ${{ inputs.tag_note }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.source_branch }}
+          fetch-depth: 0
+
+      - name: Validate source
+        run: python3 scripts/validate-skills.py
+
+      - name: Open promotion PR
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin "${SOURCE_BRANCH}" "${TARGET_BRANCH}"
+
+          source_sha="$(git rev-parse "origin/${SOURCE_BRANCH}")"
+          target_sha="$(git rev-parse "origin/${TARGET_BRANCH}")"
+
+          if [ "${source_sha}" = "${target_sha}" ]; then
+            echo "`${TARGET_BRANCH}` already points at `${source_sha}`." >> "${GITHUB_STEP_SUMMARY}"
+            exit 0
+          fi
+
+          if ! git merge-base --is-ancestor "${target_sha}" "${source_sha}"; then
+            echo "::error::${TARGET_BRANCH} is not an ancestor of ${SOURCE_BRANCH}; manual merge required."
+            exit 1
+          fi
+
+          promotion_branch="promote/${TARGET_BRANCH}-${SOURCE_BRANCH}-${source_sha}"
+          existing_url="$(gh pr list \
+            --repo "${GITHUB_REPOSITORY}" \
+            --head "${promotion_branch}" \
+            --base "${TARGET_BRANCH}" \
+            --state open \
+            --json url \
+            --jq '.[0].url // ""')"
+
+          if [ -n "${existing_url}" ]; then
+            echo "Promotion PR already exists: ${existing_url}" >> "${GITHUB_STEP_SUMMARY}"
+            exit 0
+          fi
+
+          git checkout -B "${promotion_branch}" "${source_sha}"
+          git push origin "HEAD:${promotion_branch}"
+
+          cat > pr-body.md <<EOF
+          Promotes \`${SOURCE_BRANCH}\` to \`${TARGET_BRANCH}\`.
+
+          Source commit: \`${source_sha}\`
+          Target before promotion: \`${target_sha}\`
+
+          Verification before PR creation:
+          - \`python3 scripts/validate-skills.py\`
+          EOF
+
+          if [ -n "${TAG_NOTE}" ]; then
+            {
+              echo
+              echo "Tagging:"
+              echo "- ${TAG_NOTE}"
+            } >> pr-body.md
+          fi
+
+          {
+            echo
+            echo "Manual gate after merge:"
+            echo "- ${POST_MERGE_GATE}"
+          } >> pr-body.md
+
+          pr_url="$(gh pr create \
+            --repo "${GITHUB_REPOSITORY}" \
+            --base "${TARGET_BRANCH}" \
+            --head "${promotion_branch}" \
+            --title "chore(skills): promote ${SOURCE_BRANCH} to ${TARGET_BRANCH}" \
+            --body-file pr-body.md)"
+
+          echo "Promotion PR: ${pr_url}" >> "${GITHUB_STEP_SUMMARY}"

@@ -9,6 +9,9 @@ on:
       - stg
       - prd
 
+permissions:
+  contents: read
+
 jobs:
   validate:
     runs-on: ubuntu-24.04
