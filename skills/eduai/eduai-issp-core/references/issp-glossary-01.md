@@ -247,7 +247,7 @@ ECTS Credits sind die Einheit zur Bemessung des Umfangs von Studienleistungen im
 ### Operative Erläuterungen aus administrativ-technischer Perspektive
 
 ECTS Credits werden nur vergeben, wenn das zugehörige Modul erfolgreich abgeschlossen wurde. Eine Vergabe auf Basis blosser Anwesenheit oder eine anteilige Vergabe für Teilleistungen ist ausgeschlossen. Ebenso gilt, dass jedes Modul mit ECTS Credits ausgewiesen wird, da für Studierende stets ein Aufwand entsteht, um ein Modul mit einem Leistungsnachweis abzuschliessen. Die kleinste mögliche Einheit zur Abbildung dieses Aufwands bildet dabei 1 ECTS Credit. Die einem Modul zugewiesene Anzahl von ECTS Credits wird stets vollständig vergeben. Dies hängt mit der Unteilbarkeit des Moduls zusammen: ECTS Credits beziehen sich immer auf das vollständig bestandene Modul als kleinste Leistungseinheit des Curriculums. Die ECTS Credits eines Moduls sind unabhängig davon, in welchem Studienprogramm das Modul angerechnet wird.
-In vielen Fakultäten gilt zudem der Grundsatz, dass die ECTS Credits eines Moduls in der Regel nur einmal an einen Abschluss angerechnet werden können. Aus diesem Grund wird bei Pflichtmodulen im Regelsyllabus nicht auf die ECTS Credits, sondern auf das Modul selbst referenziert („sämtliche Pflichtmodule“). Entscheidend ist, dass das Pflichtmodul erfolgreich absolviert wurde. Können die Credits dieses Moduls nicht nochmals angerechnet werden, müssen die fehlenden ECTS Credits im Rahmen der Bestehensvoraussetzungen kompensiert werden (Kompensation).
+In vielen Fakultäten gilt zudem der Grundsatz, dass die ECTS Credits eines Moduls in der Regel nur einmal an einen Abschluss angerechnet werden können. Aus diesem Grund wird bei Pflichtmodulen im Regelsyllabus nicht auf die ECTS Credits, sondern auf das Modul selbst referenziert („sämtliche Pflichtmodule“). Entscheidend ist, dass das Pflichtmodul erfolgreich absolviert wurde. Können die Credits dieses Moduls nicht nochmals angerechnet werden, müssen die fehlenden ECTS Credits im Rahmen der Bestehensvoraussetzungen kompensiert werden (Kompensation). 
 
 ---
 
@@ -276,13 +276,13 @@ Freiwahlregelung
 
 ### Glossardefinition
 
-Die Freiwahlregelung ist eine Ausprägung der Bestehensvoraussetzungen, die es Studierenden erlaubt, einen Teil der für den Abschluss erforderlichen ECTS Credits durch frei gewählte Module des eigenen Studienprogramms zu erbringen. Dieser Anteil ist nicht weiter durch Vorgaben eingeschränkt. Absolviert werden können alle Module – ausgeschlossen sind lediglich Pflichtmodule und bereits absolvierte Wahlpflicht-/Wahlmodule.
+Die Freiwahlregelung ist eine Ausprägung der Bestehensvoraussetzungen, die es Studierenden erlaubt, einen Teil der für den Abschluss erforderlichen ECTS Credits durch frei gewählte Module aus dem eigenen Studienprogramm zu erbringen. Jedoch können – im Gegensatz zu Studium generale – keine Leistungen von ausserhalb des Studienprogramms hinzugefügt werden. Absolviert werden können alle Module – ausgeschlossen sind lediglich Pflichtmodule und bereits absolvierte Wahlpflicht-/Wahlmodule.
 
 ### Operative Erläuterungen aus administrativ-technischer Perspektive
 
-Die Freiwahlregelung ergibt sich rechnerisch aus den Bestehensvoraussetzungen: Sie entsteht als Differenz zwischen den insgesamt für den Abschluss erforderlichen ECTS Credits und den durch die Bestehensvoraussetzungen konkret zugewiesenen Anteilen. Die verbleibenden ECTS Credits können frei aus dem Modulangebot des Studienprogramms gewählt werden. Dies unterscheidet die Freiwahlregel vom Studium generale: Erlauben die Bestehensvoraussetzungen auch Studium generale, dann können Studierende aus dem gesamten Angebot der UZH, also auch von ausserhalb des Studienprogramms wählen und anrechnen.
-Die Freiwahlregel wird nicht als eigenständige, positiv formulierte Regel abgebildet, da sie keine inhaltlich definierte Anforderung darstellt, sondern sich als Restgrösse aus den übrigen Bestehensvoraussetzungen ergibt. Eine positive Abbildung würde dort, wo Freiwahl sinnvoll ist, zudem zu einem Informationsverlust führen: Würden frei gewählte Leistungen in einer eigenen Kategorie zusammengefasst, ginge die inhaltliche Zuordnung der Module verloren. So bleibt sichtbar, welches fachliche Profil Studierende gewählt haben.
-Da bestandene Module nicht erneut gebucht und absolviert werden können und definitiv nicht bestandene Module nicht erneut wiederholt werden können, fallen bestimmte Module aus dieser Wahl heraus. Ausgeschlossen sind Pflichtmodule, da diese von allen Studierenden zwingend zu absolvieren sind, sowie bereits bestandene oder definitiv nicht bestandene Wahlpflicht-/Wahlmodule.
+Die Freiwahlregelung ergibt sich rechnerisch aus den Bestehensvoraussetzungen: Sie entsteht als Differenz zwischen den insgesamt für den Abschluss erforderlichen ECTS Credits und den ECTS Credits, die durch die Bestehensvoraussetzungen konkret gebunden sind. Gebunden sind ECTS Credits dann, wenn definiert ist, wodurch sie zu erbringen sind – zum Beispiel durch Pflichtmodule – oder wo sie zu erbringen sind – zum Beispiel in bestimmten Inhaltsbereichen: Wenn in einem Studienprogramm bspw. insgesamt mind. 150 ECTS Credits zu erwerben sind, davon 60 ECTS Credits durch Pflichtmodule und die übrigen 90 ECTS Credits vollständig in drei Inhaltsbereichen zu je 30 ECTS Credits, enthält das Programm keine Freiwahlregel. Denn für alle 150 ECTS Credits ist festgelegt, wodurch (Pflichtmodule) oder wo (Inhaltsbereiche) sie zu erfüllen sind. Wenn hingegen neben den 60 ECTS Credits aus Pflichtmodulen nur je 20 ECTS Credits aus jedem der drei Inhaltsbereichen verlangt werden, sind insgesamt nur 120 von insgesamt 150 ECTS Credits konkret gebunden. Die verbleibenden 30 ECTS Credits können Studierende nach persönlicher Präferenz aus dem Modulangebot des Studienprogramms wählen – beispielsweise aus allen drei Inhaltsbereichen oder gezielt aus einem oder zwei Inhaltsbereichen. Freiwahlregeln ermöglichen damit die Bildung eines individuellen inhaltlichen Profils innerhalb des Studienprogramms.
+Die Freiwahlregel wird nicht als eigenständige Regel abgebildet. Sie wird also nicht zusätzlich als Anforderung wie «mindestens 30 ECTS Credits nach freier Wahl» formuliert. Stattdessen ergibt sie sich aus der Differenz zwischen den insgesamt erforderlichen ECTS Credits und den bereits konkret gebundenen ECTS Credits. Diese freie Wahl bleibt bewusst implizit. Würde sie als eigene Kategorie abgebildet, müssten die dafür gewählten Module aus ihren Inhaltsbereichen herausgelöst und einer separaten Kategorie «freie Wahl» zugeordnet werden. Dadurch ginge eine wichtige Information verloren: nämlich, welchem Inhaltsbereich diese Module fachlich angehören. Im Academic Record soll aber sichtbar bleiben, welches inhaltliche Profil Studierende tatsächlich gebildet haben. Wenn eine Studentin oder ein Student beispielsweise im Inhaltsbereich 1 nicht nur die verlangten 20, sondern 50 ECTS Credits erwirbt, wird dadurch erkennbar, dass hier ein fachlicher Schwerpunkt gesetzt wurde.
+Abgrenzung zu Studium generale: Die Freiwahlregel begrenzt Studierende in der Wahl auf die Module, die im Programm selbst angeboten werden. Beim Studium generale (siehe dort) können Studierende aus dem gesamten Angebot der UZH Module wählen und an den Abschluss des Studienprogramms anrechnen.
 
 ---
 
@@ -510,7 +510,7 @@ Modellierungsmuster 4: Hybrides Curriculum mit empfohlenem Verlauf (empfohlene V
 
 ### Begriff
 
-Modellierungsmuster 1: Gestuft
+Modellierungsmuster 1: Gestuftes Curriculum mit verbindlichem Verlauf 
 
 ### Glossardefinition
 
@@ -530,7 +530,7 @@ Für den Academic Record ist die Studienverlaufsdimension hingegen nicht struktu
 
 ### Begriff
 
-Modellierungsmuster 2: Inhalt
+Modellierungsmuster 2: Inhaltlich strukturiertes Curriculum mit individuellem Verlauf
 
 ### Glossardefinition
 
@@ -550,7 +550,7 @@ Die Struktur der Bestehensvoraussetzungen, des Modulkatalogs/Vorlesungsverzeichn
 
 ### Begriff
 
-Modellierungsmuster 3: Hybrid verbindlich
+Modellierungsmuster 3: Hybrides Curriculum mit verbindlichem Verlauf
 
 ### Glossardefinition
 
@@ -572,7 +572,7 @@ Der Modulkatalog/das Vorlesungsverzeichnis machen in beiden Varianten die Assess
 
 ### Begriff
 
-Modellierungsmuster 4: Hybrid empfohlen
+Modellierungsmuster 4: Hybrides Curriculum mit empfohlenem Verlauf
 
 ### Glossardefinition
 
@@ -815,7 +815,7 @@ Programmdimensionen
 
 ### Glossardefinition
 
-Programmdimensionen sind Strukturierungsprinzipien eines Studienprogramms, welche die Module eines Programms in unterschiedlichen Sichten anordnen und gruppieren. Sie dienen dazu, ein Curriculum verständlich darstellen und den Leistungserwerb steuern zu können. Unterschieden werden zwei übergeordnete Dimensionen (Inhaltsdimension und Studienverlaufsdimension) sowie eine untergeordnete Dimensionen (Dimension Modultyp).
+Programmdimensionen sind Strukturierungsprinzipien eines Studienprogramms, welche die Module eines Programms aus unterschiedlicher Perspektive anordnen und gruppieren. Sie dienen dazu, ein Curriculum verständlich darstellen und den Leistungserwerb steuern zu können. Unterschieden werden zwei übergeordnete Dimensionen (Inhaltsdimension und Studienverlaufsdimension) sowie eine untergeordnete Dimension (Dimension Modultyp).
 
 ### Operative Erläuterungen aus administrativ-technischer Perspektive
 
