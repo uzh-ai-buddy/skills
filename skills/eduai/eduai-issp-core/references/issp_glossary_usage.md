@@ -24,29 +24,43 @@ Der MCP-Server bleibt die Quelle für Prozessdokumente, Detailinformationen und 
 
 Die Glossardefinitionen im Full-Glossary-Skill sind wörtlich zu verwenden bzw. nicht umzuschreiben, wenn eine Definition gefragt ist.
 
-Wenn eine Nutzerfrage ausdrücklich nach der Bedeutung eines Begriffs fragt, antworte primär auf Basis der Glossardefinition.
+Wenn eine Nutzerfrage ausdrücklich nach der Bedeutung eines Begriffs fragt, antworte auf Basis der Glossardefinition.
+
+Wenn ein Nutzer das Glossar einsehen möchte, gib NICHT das gesamte Glossar aus, sondern verweise ihn auf die Website des ISSP [ToDo: Link einfügen, existiert noch nicht].
 
 Wenn operative oder administrativ-technische Details relevant sind, nutze zusätzlich die im Glossar enthaltenen operativen Erläuterungen.
 
 ## Antwortverhalten
 
-Wenn Nutzer:innen ungenaue oder nicht-kanonische Begriffe verwenden:
+Wenn Nutzer ungenaue, verkürzte oder nicht-kanonische Begriffe verwenden, gehe wie folgt vor:
 
-1. Erkenne den wahrscheinlich gemeinten Glossarbegriff.
-2. Verwende in der Antwort den korrekten Glossarbegriff.
-3. Erkläre bei Bedarf kurz die Abgrenzung.
-4. Ergänze die MCP-Abfrage mit dem korrekten Glossarbegriff.
+- Identifiziere alle wahrscheinlich gemeinten Begriffe aus dem Glossar.
+- Prüfe, ob die Nutzeranfrage eindeutig einem Glossarbegriff zugeordnet werden kann.
+- Falls mehrere Glossarbegriffe infrage kommen, weise ausdrücklich auf die Mehrdeutigkeit hin und frage zunächst nach, welcher Begriff gemeint ist. Verfasse in diesem Fall noch keine fachliche Antwort.
+- Verwende in der Antwort ausschließlich die korrekten und vollständigen Glossarbegriffe aus dem Glossar. Kürzungen, Synonyme oder informelle Bezeichnungen dürfen nicht verwendet werden.
+- Erläutere die Abgrenzung der infrage kommenden Begriffe anhand der im Glossar hinterlegten Definitionen. Ziehe bei Bedarf zusätzlich operative oder administrativ-technische Details heran.
+- Erst nachdem eindeutig geklärt wurde, welcher Glossarbegriff gemeint ist, ergänze die MCP-Abfrage um den korrekten Glossarbegriff und bearbeite die Anfrage weiter.
+
+Wenn für einen Nutzerbegriff kein Glossareintrag gefunden wird:
+
+1. weise darauf hin, dass kein entsprechender Glossarbegriff existiert,
+2. verwende keine erfundene ISSP-Terminologie,
+3. beantworte die Frage ausschließlich auf Basis des MCP-Kontexts,
+4. kennzeichne die verwendete Terminologie als nicht durch das ISSP-Glossar definiert.
+
 
 ## Beispiele
 
 ### Beispiel 1
 
-Nutzerbegriff: „Kurse“
+Nutzerbegriff: „Kompensation“
 
-Korrekte ISSP-Terminologie:
-- meistens: „Module“
-- ggf. „Lehrangebot“, wenn die Gesamtheit der angebotenen Module gemeint ist
-- ggf. „Vorlesungsverzeichnis“, wenn das semesterbezogene Angebot gemeint ist
+Mögliche Glossarbegriffe:
+
+- „Kompensation von Pflichtmodulen“
+- „Kompensation von Teilleistungsnachweisen“
+
+Wenn aus der Anfrage nicht eindeutig hervorgeht, welcher Glossarbegriff gemeint ist, weise auf die Mehrdeutigkeit hin und frage nach. Erst nach der Klärung darf eine fachliche Antwort erstellt und die entsprechende MCP-Abfrage ausgeführt werden.
 
 ### Beispiel 2
 
@@ -66,7 +80,7 @@ Begrifflich prüfen:
 - Anerkennung = Übernahme akademischer Leistungen in Leistungsausweis / System
 - Anrechnung = Verwendung einer Leistung am Studienabschluss
 
-Nicht vermischen.
+Nicht vermischen. Stelle gegebenenfalls Rückfragen an die User.
 
 ## Zentrale Abgrenzungen
 
@@ -107,9 +121,9 @@ Typische Zuordnungen:
 
 ## Zusammenspiel mit MCP
 
-Bei jeder Antwort weiterhin eine MCP-Abfrage durchführen.
+Nach erfolgreicher Begriffsklärung ist eine MCP-Abfrage durchzuführen, sofern die Nutzerfrage über eine reine Begriffsdefinition hinausgeht oder prozessuale, operative, administrative oder rechtliche Informationen verlangt.
 
-Die MCP-Abfrage soll die kanonischen Glossarbegriffe enthalten.
+Die MCP-Abfrage muss immer die identifizierten kanonischen Glossarbegriffe enthalten. Nutzerformulierungen dürfen zusätzlich verwendet werden, dürfen die kanonischen Glossarbegriffe jedoch niemals ersetzen.
 
 Beispiel:
 
