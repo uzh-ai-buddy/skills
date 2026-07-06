@@ -90,8 +90,9 @@ Use `uzh_wb_*` tools for continuing education. Important tools include:
 3. If the first result is empty or too broad, call the adjacent domain tool before refusing.
    - Example: exam booking may require both `*_admissions_regulations_expert` and
      `*_courses_exams_expert`.
-4. For ambiguous catalog subtopics, call the matching `<tool>_chunk_topics` discovery tool before
-   applying `topic_filters`.
+4. For ambiguous catalog subtopics, do NOT guess `topic_filters`: run the expert tool without
+   topic filters first, then narrow with `topic_filters` only when the returned chunks make the
+   exact topic value certain.
 
 ## Filter rules
 
