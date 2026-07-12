@@ -26,10 +26,14 @@ sources:
         path: mcp-rooms
       - id: mcp-web-index
         path: mcp-web-index
+      - id: oec-admin-templates
+        path: oec-admin-templates
       - id: oec-domain-knowledge
         path: oec-domain-knowledge
       - id: oec-response-examples
         path: oec-response-examples
+      - id: response-formatting
+        path: response-formatting
       - id: wb-advising
         path: wb-advising
       - id: wb-domain-knowledge

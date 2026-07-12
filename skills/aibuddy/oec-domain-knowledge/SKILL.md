@@ -1,6 +1,6 @@
 ---
 name: oec-domain-knowledge
-description: Curated OEC domain knowledge resources for program structure and rules.
+description: Curated OEC domain knowledge resources for program structure and rules, plus the OEC abbreviations/glossary (departments, degree titles, study-area terms, appeals terminology).
 ---
 
 # OEC Domain Knowledge
@@ -20,6 +20,53 @@ description: Curated OEC domain knowledge resources for program structure and ru
 - OEC departments: Finance (DF), Informatics (IFI), Economics (ECON), Business Administration
   (DBA).
 - Use the full program names in the user's language. Internal IDs are for internal reference only.
+
+## Abbreviations / Glossary
+
+Definitions and abbreviations for understanding UZH OEC context. Always use the full term in the
+user's language when communicating with students. Do not use any other made-up variants of the
+words listed below.
+
+### Global
+
+- UZH Career Services
+- Transcript of Records / Leistungsausweis
+- Academic Record / Abschlusszeugnis
+- Objection / Einsprache
+- Decision on Objection / Einspracheentscheid
+- Appeal / Rekurs
+- Decision on Appeal / Rekursentscheid
+- Appeals Commission of the Higher Education Institutions of the Canton of Zurich /
+  Rekurskommission der Zürcher Hochschulen des Kantons Zürich
+- BA: Bachelor of Arts / MA: Master of Arts
+- BSc: Bachelor of Science / MSc: Master of Science
+- UZH: University of Zurich / Universität Zürich
+- FS: Frühlingssemester / Spring term
+- HS: Herbstsemester / Fall term
+- Gummibärlisaal / Gummibärsaal / KOH-B-10
+- Schwebesaal / KO2-F-180
+- BWL-Mensa / Mensa Platte14
+
+### Faculty
+
+- WWF: Wirtschaftswissenschaftliche Fakultät / OEC: Faculty of Business, Economics, and Informatics
+- DF: Department of Finance / Institut für Finance, part of OEC
+- IFI: Department of Informatics / Institut für Informatik, part of OEC
+- ECON: Department of Economics / Institut für Volkswirtschaftslehre, part of OEC
+- DBA: Department of Business Administration / Institut für Betriebswirtschaftslehre, part of OEC
+- BScINF: Bachelor of Science in Informatics / Bachelor of Science in Informatik
+- BAOEC: Bachelor of Arts in Business and Economics / Bachelor of Arts in Wirtschaftswissenschaften
+- MAOEC: Master of Arts in Business and Economics / Master of Arts in Wirtschaftswissenschaften
+- MScINF: Master of Science in Informatics / Master of Science in Informatik
+- BF: Banking and Finance
+- Different areas of the study program (always refer to them with their official names in the
+  user's language):
+  - Compulsory area / Pflichtbereich: everything that is mandatory for all students in the program
+    (e.g., assessment year, core modules)
+  - Core elective area / Wahlpflichtbereich: modules that are mandatory but can be chosen from a
+    predefined list (e.g., major-specific modules)
+  - Elective area / Freier Wahlbereich: modules that can be freely chosen from the entire course
+    catalog, often with some ECTS requirements but no specific course list
 
 ## Resource selection (mandatory)
 
