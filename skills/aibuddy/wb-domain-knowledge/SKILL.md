@@ -1,6 +1,6 @@
 ---
 name: wb-domain-knowledge
-description: Orientation knowledge for UZH continuing education (Weiterbildung) — MAS/DAS/CAS program types and the alternative UZH offerings to route to when a paid program is not the right fit. Pairs with the wb-advising skill for the advising conversation.
+description: Orientation knowledge for UZH continuing education (Weiterbildung) — MAS/DAS/CAS types and alternative routes when a paid program is not the right fit. Load for Weiterbildung, weiterbilden, MAS, DAS, CAS questions; pairs with wb-advising.
 ---
 
 # UZH Continuing Education — Domain Knowledge

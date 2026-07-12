@@ -1,6 +1,6 @@
 ---
 name: mcp-rooms
-description: Rooms MCP playbook for room lookup, building info, campus navigation, and accessibility.
+description: Rooms MCP playbook for room lookup, building info, campus navigation, and accessibility — Raum, Gebäude, Hörsaal. Load before any rooms MCP tool call.
 ---
 
 # AI Buddy Rooms Playbook

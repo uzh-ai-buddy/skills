@@ -1,6 +1,6 @@
 ---
 name: mcp-doc-query
-description: Doc-query MCP playbook for generated catalog expert routing, filters, and citation handling.
+description: Doc-query MCP playbook for routing UZH policy, study, and service questions to generated catalog expert tools, applying filters, and preserving citations. Load before the first doc-query or catalog expert tool call.
 ---
 
 # AI Buddy Catalog Doc-Query Playbook
@@ -90,8 +90,11 @@ Use `uzh_wb_*` tools for continuing education. Important tools include:
 3. If the first result is empty or too broad, call the adjacent domain tool before refusing.
    - Example: exam booking may require both `*_admissions_regulations_expert` and
      `*_courses_exams_expert`.
-4. For ambiguous catalog subtopics, call the matching `<tool>_chunk_topics` discovery tool before
-   applying `topic_filters`.
+4. For catalog subtopics, there is no discovery tool available to this agent (`*_chunk_topics`
+   tools are excluded from every tenant). The valid source-level topic names for the selected
+   expert are appended to that tool's own description (e.g. "... including Admissions, Booking,
+   Regulations"). Pass `topic_filters` only with names taken from there; omit the filter if the
+   topic is not listed.
 
 ## Filter rules
 
