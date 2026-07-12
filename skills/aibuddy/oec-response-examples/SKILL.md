@@ -1,6 +1,6 @@
 ---
 name: oec-response-examples
-description: Canonical response examples and style templates for common AI Buddy queries.
+description: Canonical worked response examples and style templates per query type for AI Buddy — load when drafting a response that is template-adjacent, procedural, or a novel query type, to match structure, tone, and phrasing.
 ---
 
 # AI Buddy Response Examples

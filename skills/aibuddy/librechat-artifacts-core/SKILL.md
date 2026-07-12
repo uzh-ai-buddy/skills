@@ -1,6 +1,6 @@
 ---
 name: librechat-artifacts-core
-description: Canonical wrapper rules and identifiers for LibreChat artifacts.
+description: Canonical wrapper rules and identifiers for LibreChat artifacts — load before emitting any artifact block; every other artifact skill depends on it.
 ---
 
 # LibreChat Artifacts Core
