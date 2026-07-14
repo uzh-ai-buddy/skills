@@ -44,3 +44,11 @@ sources:
     skills:
       - id: eduai-issp-core
         path: eduai-issp-core
+      - id: librechat-artifacts-core
+        path: librechat-artifacts-core
+      - id: librechat-artifacts-markdown
+        path: librechat-artifacts-markdown
+      - id: librechat-artifacts-teaching-planner
+        path: librechat-artifacts-teaching-planner
+      - id: mcp-doc-query
+        path: mcp-doc-query
