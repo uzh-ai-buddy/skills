@@ -50,5 +50,5 @@ sources:
         path: librechat-artifacts-markdown
       - id: librechat-artifacts-teaching-planner
         path: librechat-artifacts-teaching-planner
-      - id : mcp-doc-query
+      - id: mcp-doc-query
         path: mcp-doc-query
