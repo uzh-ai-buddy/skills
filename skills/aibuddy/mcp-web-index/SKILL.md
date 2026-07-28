@@ -1,6 +1,6 @@
 ---
 name: mcp-web-index
-description: Web-index MCP playbook for retrieval-only website discovery and no-results handling.
+description: Web-index MCP playbook for retrieval-only UZH website discovery — the fallback when document experts return no results or the user asks where to find something online (Webseite, Link, wo finde ich). Load before calling web_index_pages.
 ---
 
 # AI Buddy Web-Index Playbook

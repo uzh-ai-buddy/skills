@@ -1,6 +1,6 @@
 ---
 name: mcp-course-data
-description: Course-data MCP playbook for course search, schedules, and program/field navigation.
+description: Course-data MCP playbook for course search, timetables/schedules, lecturers, ECTS filters, and program/field eligibility — Vorlesungsverzeichnis, VVZ, Modul, Stundenplan. Load before the first course-data tool call.
 ---
 
 # AI Buddy Course-Data Playbook
@@ -19,7 +19,7 @@ description: Course-data MCP playbook for course search, schedules, and program/
 - **List faculties** → `get_faculties(name_query=...)`
 - **Degree programs for a faculty** → `get_degree_programs_for_faculty(faculty_name=...)`
 - **Majors/minors for a program** → `get_fields_for_program(program_name=...)`
-- **Courses within a field** → `get_courses_for_field(field_name=..., semester?, year?, podcast?)`
+- **Courses within a field** → `search_courses_by_criteria(field_name=...)`
 - **Filtered course search** (day/time, lecturer, language, topic, degree program, core elective area, course code, ECTS)
   → `search_courses_by_criteria(...)`
 - **Batch/exact ID lookup** → `search_courses_by_criteria(ids=[...])`
@@ -125,4 +125,7 @@ the second page).
 
 - `language` prefers: "English", "German", "French", "Italian".
 - For bilingual requests, pass a list (e.g., `["English", "German"]`).
-- `topic_names` must match exact topic names; common abbreviations (AI/ML/HCI) are supported.
+- **Topic filters**: before passing `topic_names`, read `references/topic-vocabulary.md` for the
+  exact valid names for the tool you are calling — the tool schemas no longer list them, and
+  `search_courses_by_criteria` and `search_courses_combined` use different, non-interchangeable
+  topic vocabularies (both support a few common abbreviations, e.g. AI/ML/HCI).
