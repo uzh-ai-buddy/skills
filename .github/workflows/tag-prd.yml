@@ -1,0 +1,62 @@
+name: Tag prd skill release
+
+on:
+  push:
+    branches:
+      - prd
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tag-prd-skill-release
+  cancel-in-progress: false
+
+jobs:
+  tag:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout prd
+        uses: actions/checkout@v4
+        with:
+          ref: prd
+          fetch-depth: 0
+
+      - name: Create release tag
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch --tags origin
+
+          existing_tags="$(git tag --list 'skills-*' --points-at "${GITHUB_SHA}")"
+          if [ -n "${existing_tags}" ]; then
+            echo "Existing skill release tag for ${GITHUB_SHA}: ${existing_tags}" >> "${GITHUB_STEP_SUMMARY}"
+            exit 0
+          fi
+
+          date_part="$(date -u +%F)"
+          n=1
+          attempts=0
+
+          while [ "${attempts}" -lt 10 ]; do
+            git fetch --tags origin
+            while git rev-parse -q --verify "refs/tags/skills-${date_part}.${n}" >/dev/null; do
+              n=$((n + 1))
+            done
+
+            tag="skills-${date_part}.${n}"
+            git tag -a "${tag}" "${GITHUB_SHA}" -m "Skills release ${tag}"
+            if git push origin "${tag}"; then
+              echo "Created ${tag} at ${GITHUB_SHA}." >> "${GITHUB_STEP_SUMMARY}"
+              exit 0
+            fi
+
+            git tag -d "${tag}"
+            n=$((n + 1))
+            attempts=$((attempts + 1))
+          done
+
+          echo "::error::Could not create unique skills release tag after ${attempts} attempts."
+          exit 1

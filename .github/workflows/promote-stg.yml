@@ -1,0 +1,19 @@
+name: Promote skills to stg
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: promote-skills
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    permissions:
+      contents: write
+      pull-requests: read
+    uses: ./.github/workflows/promote-reusable.yml
+    with:
+      source_branch: dev
+      target_branch: stg
+      post_merge_gate: verify LibreChat staging sync before promoting to prd

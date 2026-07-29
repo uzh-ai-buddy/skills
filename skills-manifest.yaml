@@ -26,10 +26,14 @@ sources:
         path: mcp-rooms
       - id: mcp-web-index
         path: mcp-web-index
+      - id: oec-admin-templates
+        path: oec-admin-templates
       - id: oec-domain-knowledge
         path: oec-domain-knowledge
       - id: oec-response-examples
         path: oec-response-examples
+      - id: response-formatting
+        path: response-formatting
       - id: wb-advising
         path: wb-advising
       - id: wb-domain-knowledge
@@ -40,3 +44,11 @@ sources:
     skills:
       - id: eduai-issp-core
         path: eduai-issp-core
+      - id: librechat-artifacts-core
+        path: librechat-artifacts-core
+      - id: librechat-artifacts-markdown
+        path: librechat-artifacts-markdown
+      - id: librechat-artifacts-teaching-planner
+        path: librechat-artifacts-teaching-planner
+      - id: mcp-doc-query
+        path: mcp-doc-query

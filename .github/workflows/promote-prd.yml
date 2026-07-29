@@ -1,0 +1,20 @@
+name: Promote skills to prd
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: promote-skills
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    permissions:
+      contents: write
+      pull-requests: read
+    uses: ./.github/workflows/promote-reusable.yml
+    with:
+      source_branch: stg
+      target_branch: prd
+      post_merge_gate: verify LibreChat production sync and smoke tests
+      tag_note: after this PR merges, tag-prd.yml creates a skills-YYYY-MM-DD.N tag at the new prd head
