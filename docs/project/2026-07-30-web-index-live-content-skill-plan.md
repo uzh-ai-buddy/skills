@@ -53,3 +53,5 @@ UZH web content. Users may ask naturally; they do not need to provide a URL or c
   `not_live_fetchable` fallback.
 - [x] Independent cross-repository review complete with no remaining blocker.
 - [ ] PR published to `dev`.
+  - Publication attempt on 2026-07-30 was blocked by sandbox DNS; the required network escalation
+    was unavailable because the approval service reported its usage limit.
