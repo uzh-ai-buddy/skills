@@ -14,7 +14,9 @@ catalog-bound; never treat them as unrestricted web access.
 
 Use this default when the user did not supply the resource:
 
-1. Search `web_index_pages` with the user's topic, language, and known study or faculty context.
+1. Search `web_index_pages` with a specific query containing the user's topic, language, and known
+   study or faculty context. Add optional filters only when you know an exact accepted value;
+   otherwise omit them because an unsupported hard filter returns no results.
 2. Select only a result that clearly matches the requested resource. Do not fetch a merely
    plausible or loosely related result.
 3. When current content matters, call `web_index_fetch` with the selected result's `id`.
