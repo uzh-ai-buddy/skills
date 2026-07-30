@@ -52,7 +52,4 @@ UZH web content. Users may ask naturally; they do not need to provide a URL or c
 - [x] Forward tests pass for no-URL current content, supplied URL, dated evidence, and
   `not_live_fetchable` fallback.
 - [x] Independent cross-repository review complete with no remaining blocker.
-- [ ] PR published to `dev`.
-  - Branch pushed to `origin/enhance/web-index-live-content-skill`.
-  - Draft PR creation remains blocked: the GitHub integration returned HTTP 403, the saved `gh`
-    token is invalid, and the available browser session is signed out.
+- [x] Branch published as draft PR `#11` targeting `dev`.
