@@ -8,15 +8,17 @@ description: Discover catalog-backed UZH web resources and refresh eligible page
 Use `web_index_pages` for discovery and `web_index_fetch` for current content. Both tools are
 catalog-bound; never treat them as unrestricted web access.
 
+When current content matters, use Web Index before any document-retrieval expert.
+
 ## Select the workflow
 
 ### Discover, then refresh
 
 Use this default when the user did not supply the resource:
 
-1. Search `web_index_pages` with a specific query containing the user's topic, language, and known
-   study or faculty context. Add optional filters only when you know an exact accepted value;
-   otherwise omit them because an unsupported hard filter returns no results.
+1. Start with `web_index_pages` using only `query`. Put the user's topic, language, and known study
+   or faculty context in the query text. Leave all optional filter fields unset; guessed filter
+   values suppress valid results. Keep any refined retry query-only too.
 2. Select only a result that clearly matches the requested resource. Do not fetch a merely
    plausible or loosely related result.
 3. When current content matters, call `web_index_fetch` with the selected result's `id`.
@@ -43,7 +45,8 @@ semester, or period.
 ### Use a supplied URL
 
 When the user supplies a public UZH URL and asks about its current content, call
-`web_index_fetch` with that URL. Do not require a catalog ID or run discovery first.
+`web_index_fetch` with that URL as the first content-tool call. Do not require a catalog ID or call
+`web_index_pages` or a document-retrieval expert first.
 
 Never send credentials, signed tokens, personal data, or private URLs to either tool. Do not alter
 the supplied URL to guess another resource.
