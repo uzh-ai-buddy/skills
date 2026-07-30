@@ -1,64 +1,75 @@
 ---
 name: mcp-web-index
-description: Web-index MCP playbook for retrieval-only UZH website discovery — the fallback when document experts return no results or the user asks where to find something online (Webseite, Link, wo finde ich). Load before calling web_index_pages.
+description: Discover catalog-backed UZH web resources and refresh eligible pages live. Use for website or link searches, user-supplied UZH URLs, likely time-sensitive information such as today's menus, opening hours, schedules, deadlines, events, closures, or availability, and when retrieved web evidence appears older than the period the user asks about.
 ---
 
-# AI Buddy Web-Index Playbook
+# AI Buddy Web Index
 
-## Purpose
-- Provide canonical rules for when and how to use the `web_index_pages` tool.
+Use `web_index_pages` for discovery and `web_index_fetch` for current content. Both tools are
+catalog-bound; never treat them as unrestricted web access.
 
-## When to use
-- Before calling `web_index_pages`.
-- When primary tools return insufficient results, or the user explicitly requests websites or
-  online resources.
+## Select the workflow
 
-## Tool overview
+### Discover, then refresh
 
-The `web_index_pages` tool searches through all catalog-backed UZH websites and returns relevant
-page records with titles, URLs, snippets, and metadata. It does not synthesize an answer and does
-not call the web-index LLM.
+Use this default when the user did not supply the resource:
 
-Use `web_index_pages` by default. Do not call the LLM-backed `web_index` answer tool unless
-`web_index_pages` is unavailable and the user specifically asks for generated web-index
-recommendations.
+1. Search `web_index_pages` with the user's topic, language, and known study or faculty context.
+2. Select only a result that clearly matches the requested resource. Do not fetch a merely
+   plausible or loosely related result.
+3. When current content matters, call `web_index_fetch` with the selected result's `id`.
+4. Answer from the live result and cite its resolved URL.
 
-**CRITICAL**: For better ranking, naturally enrich the query with context info about
-study_level and department/faculty (when known).
+This includes requests about what is true today, now, currently, or latest; frequently changing
+menus, opening hours, schedules, deadlines, events, closures, and availability; and equivalent
+freshness-sensitive wording.
 
-## Fallback priority (mandatory)
+### Refresh dated evidence
 
-Always use `web_index_pages` as a fallback when:
+When another retrieval result identifies a web page but its date or content appears older than the
+requested period:
 
-1. Primary tools (course_data + expert tools) return insufficient or no results
-2. The user explicitly requests websites, online resources, or "where can I find..."
-3. You need to suggest relevant UZH websites for further information
-4. Complex queries require additional resources beyond primary tools
+1. Search `web_index_pages` for that resource.
+2. Match the result by subject and URL where possible.
+3. Live-fetch the matched result by `id`.
+4. Prefer successful live evidence over the older indexed evidence.
 
-## Coverage categories
+Do not refresh merely because a page lacks a visible date. Use this path when the user asks for
+current information or the retrieved evidence is visibly inconsistent with the requested date,
+semester, or period.
 
-The web-index pages tool covers websites organized by:
+### Use a supplied URL
 
-- General Info & Regulations
-- Study Programs & Assessment
-- Exams & Courses
-- Career & Internships
-- Health & Support Services
-- Infrastructure & IT
-- Associations & Exchange
-- Theses & Research
+When the user supplies a public UZH URL and asks about its current content, call
+`web_index_fetch` with that URL. Do not require a catalog ID or run discovery first.
 
-## No results protocol (mandatory)
+Never send credentials, signed tokens, personal data, or private URLs to either tool. Do not alter
+the supplied URL to guess another resource.
 
-1. State explicitly: "I am sorry, but I do not have any specific information about this in my
-   database. Let me provide you with a list of websites that might be relevant."
-2. Use `web_index_pages` to search indexed UZH websites for relevant categories.
-3. Present results with the user-responsibility notice using the **Website References** template
-   from the system prompt.
-4. Suggest appropriate human contact if still insufficient.
-5. Offer an alternative search approach.
+### Discovery only
 
-## Tool chaining pattern: No results → fallback
+Use `web_index_pages` without live fetch when the user wants relevant official websites or when
+freshness does not affect the answer.
 
-Primary tools return nothing → `web_index_pages` as fallback → present with user responsibility
-notice → suggest direct contact if still insufficient.
+## Handle results
+
+- `success`: use the fetched content and cite the returned URL.
+- `not_live_fetchable`: use indexed evidence only if it directly helps, state that it was not
+  verified live, and make no claim about what is true today or currently.
+- `not_in_catalog` or no relevant search result: do not fetch another arbitrary URL. Say that
+  current information could not be verified and offer the closest relevant official links.
+- `pdf_resource`: use the appropriate document-retrieval expert for the PDF.
+- `fetch_pending`: retry the same selector once. If it remains pending, say that current content is
+  temporarily unavailable.
+- `busy` or `upstream_error`: retry once only when useful, then report that current content could
+  not be verified.
+- `robots_blocked`: do not retry; report that live verification is unavailable.
+
+Never turn an error, indexed snippet, or irrelevant search result into a current-content claim.
+Keep retries bounded and do not repeat a successful fetch.
+
+## No-results fallback
+
+After ordinary retrieval is insufficient, use `web_index_pages` to find relevant official UZH
+resources. Present only relevant results with their links. If none are useful, suggest the
+appropriate human contact or a narrower search rather than inventing an answer.
