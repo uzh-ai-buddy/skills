@@ -24,6 +24,9 @@ Use this default when the user did not supply the resource:
 3. When current content matters, call `web_index_fetch` with the selected result's `id`.
 4. Answer from the live result and cite its resolved URL.
 
+Do not skip step 3 because another tool already returned an answer or because search metadata
+suggests that live fetch may be unavailable. Call `web_index_fetch` and handle its explicit status.
+
 This includes requests about what is true today, now, currently, or latest; frequently changing
 menus, opening hours, schedules, deadlines, events, closures, and availability; and equivalent
 freshness-sensitive wording.
