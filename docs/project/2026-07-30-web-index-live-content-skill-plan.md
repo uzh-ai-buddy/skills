@@ -49,6 +49,7 @@ UZH web content. Users may ask naturally; they do not need to provide a URL or c
 - [x] MCP contract and current catalog coverage verified.
 - [x] Skill implemented.
 - [x] Repository and system skill validators pass.
-- [ ] Forward tests pass.
-- [ ] Independent review complete.
+- [x] Forward tests pass for no-URL current content, supplied URL, dated evidence, and
+  `not_live_fetchable` fallback.
+- [x] Independent cross-repository review complete with no remaining blocker.
 - [ ] PR published to `dev`.
