@@ -74,6 +74,9 @@ freshness does not affect the answer.
 - `busy` or `upstream_error`: retry once only when useful, then report that current content could
   not be verified.
 - `robots_blocked`: do not retry; report that live verification is unavailable.
+- `page_unavailable`: the page no longer answers at that address. Do not retry and do not fall back
+  to indexed content as if it described the page today. Say the resource appears to have moved or
+  been removed, and offer `web_index_pages` results for the current equivalent.
 
 Never turn an error, indexed snippet, or irrelevant search result into a current-content claim.
 Keep retries bounded and do not repeat a successful fetch.
