@@ -1,6 +1,6 @@
 ---
 name: mcp-web-index
-description: Discover catalog-backed UZH web resources and refresh eligible pages live. Use for website or link searches, user-supplied UZH URLs, likely time-sensitive information such as today's menus, opening hours, schedules, deadlines, events, closures, or availability, and when retrieved web evidence appears older than the period the user asks about.
+description: Discover catalog-backed UZH web resources and refresh eligible pages live. Use for website or link searches, user-supplied UZH URLs, any request whose answer depends on current content whatever its topic or content type, including freshness wording such as today, now, currently, latest, or this week, and when retrieved web evidence appears older than the period the user asks about.
 ---
 
 # AI Buddy Web Index
@@ -64,6 +64,9 @@ freshness does not affect the answer.
 - `success`: use the fetched content and cite the returned URL.
 - `not_live_fetchable`: use indexed evidence only if it directly helps, state that it was not
   verified live, and make no claim about what is true today or currently.
+  - Falling back to a document-retrieval expert does not lift this. Indexed content that repeats
+    the same facts is not independent confirmation, because it came from the same page at an
+    earlier time. The answer still carries the not-verified-live statement.
 - `not_in_catalog` or no relevant search result: do not fetch another arbitrary URL. Say that
   current information could not be verified and offer the closest relevant official links.
 - `pdf_resource`: use the appropriate document-retrieval expert for the PDF.
@@ -75,6 +78,32 @@ freshness does not affect the answer.
 
 Never turn an error, indexed snippet, or irrelevant search result into a current-content claim.
 Keep retries bounded and do not repeat a successful fetch.
+
+## Cite and disclose
+
+Cite the resource you actually selected and fetched. Do not substitute a different page of the same
+site because its content reads better.
+
+Label every entry in the Sources section with where its content came from:
+
+- Live fetch: `- [Title](url) — live fetch, 31 Jul 2026 15:30 UTC`, using the `fetched_at` value the
+  tool returned. Give the date always and add the time when the fetch happened on the current day.
+  `fetched_at` is when the page was last pulled from the site, so report it unchanged even when
+  `cache.fetch_hit` is true.
+- Indexed evidence: `- [Title](url) — indexed`. Add `, last fetched <date>` only when the retrieval
+  result carries an indexing or fetch timestamp; never estimate or invent one.
+
+German responses use `— live abgerufen, 31. Juli 2026 15:30 UTC` and `— indexiert`.
+
+When any live fetch was attempted in the response, close the Sources section with one line:
+
+- English: `_Live-fetched content reflects the page at the time shown and may have changed since._`
+- German: `_Live abgerufene Inhalte entsprechen dem Stand zum angegebenen Zeitpunkt und können sich
+  seither geändert haben._`
+
+When live verification was attempted and did not succeed, the body of the answer states that plainly
+before the facts it qualifies, and does not describe the information as current, today's, or
+confirmed. The Sources line alone is not sufficient.
 
 ## No-results fallback
 
