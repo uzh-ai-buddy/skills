@@ -1,6 +1,6 @@
 ---
 lang: en
-summary: "Use when the user asks what is currently true but live verification did not succeed. Structure: state up front that the information could not be verified live, give the indexed facts qualified as such, point to the official page, then Sources labelled indexed."
+summary: "Use when the user asks what is currently true about a page or offering -- who it is for now, what applies this semester, what the current rules are -- and the answer rests on content that was not verified live. Structure: state up front that the information could not be verified live, give the indexed facts qualified as such, point to the official page, then Sources labelled indexed."
 ---
 
 **User:**
