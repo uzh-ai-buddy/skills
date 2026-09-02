@@ -1,13 +1,13 @@
 ---
 name: mcp-klicker-course-answer
-description: Route short factual and course-administrative questions about the OEC pilot courses to the dedicated Klicker course-answer MCP tools; do not use for teaching or participant-specific help.
+description: Route short factual and course-administrative questions to the configured Klicker course-answer MCP tool for the relevant course; do not use for teaching or participant-specific help.
 ---
 
-# OEC Klicker Course Answers
+# Klicker Course Answers
 
-Use this skill only for a simple factual or course-administrative question about one of the two
-pilot courses. Keeping these answers on the dedicated course binding prevents generic retrieval
-from bypassing the pilot boundary.
+Use this skill only for a simple factual or course-administrative question about a course that has
+a configured Klicker course-answer binding. Keeping these answers on the dedicated course binding
+prevents generic retrieval from bypassing the course boundary.
 
 Use this skill in Answer mode only. Never use it to populate Documents mode or expose course
 material as document chunks.
@@ -18,19 +18,21 @@ material as document chunks.
 - Treat conceptual teaching, explanations, worked examples, exercises, hints, solutions, diagnosis,
   grading, feedback, multi-turn learning, and participant-specific requests as out of scope. Direct
   these requests to the lecturer-governed Klicker course chatbot and do not provide substantive
-  teaching in the OEC response.
-- If a request mixes in-scope and prohibited content, prohibited content wins: do not call a pilot
-  tool and hand off the entire request to the relevant lecturer-governed Klicker course chatbot.
+  teaching in the AI Buddy response.
+- If a request mixes in-scope and prohibited content, prohibited content wins: do not call a
+  course-answer tool and hand off the entire request to the relevant lecturer-governed Klicker
+  course chatbot.
 
-## Call the dedicated binding
+## Call the configured binding
 
-- For the OEC Finance course, call exactly `klicker_course_answer-klicker_course_finance`.
-- For the OEC IuW course, call exactly `klicker_course_answer-klicker_course_iuw`.
+- Course-answer bindings live in the `klicker_course_answer-<server>` tool namespace; each
+  configured course exposes exactly one binding. Choose among the bindings actually offered in the
+  current tool list; never invent or construct a binding name.
 - Call only the binding for the clearly relevant course. If the course is not clear, ask the user to
   name it; do not guess or call another tool.
-- Never combine the Finance and IuW bindings or use one to answer about the other. If a request
-  spans both courses or asks for a comparison across them, do not call either pilot tool; hand off
-  the complete request to the lecturer-governed Klicker course chatbots.
+- Never combine bindings or use one binding to answer about another course. If a request spans
+  multiple courses or asks for a comparison across them, do not call any binding; hand off the
+  complete request to the lecturer-governed Klicker course chatbots.
 - For an in-scope question, use the selected binding instead of generic doc-query, web-index,
   course-data, or general-knowledge answers.
 - Pass only `question` and optional `locale` (`de` or `en`) to the selected binding. Omit `locale`
