@@ -25,9 +25,9 @@ material as document chunks.
 
 ## Call the configured binding
 
-- Course-answer bindings live in the `klicker_course_answer-<server>` tool namespace; each
-  configured course exposes exactly one binding. Choose among the bindings actually offered in the
-  current tool list; never invent or construct a binding name.
+- Course-answer bindings appear as `klicker_course_answer_mcp_klicker_course_<course>` in the
+  tool list; each configured course exposes exactly one binding. Choose among the bindings
+  actually offered in the current tool list; never invent or construct a binding name.
 - Call only the binding for the clearly relevant course. If the course is not clear, ask the user to
   name it; do not guess or call another tool.
 - Never combine bindings or use one binding to answer about another course. If a request spans
