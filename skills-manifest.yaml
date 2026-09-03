@@ -22,6 +22,8 @@ sources:
         path: mcp-course-data
       - id: mcp-doc-query
         path: mcp-doc-query
+      - id: mcp-klicker-course-answer
+        path: mcp-klicker-course-answer
       - id: mcp-rooms
         path: mcp-rooms
       - id: mcp-web-index
