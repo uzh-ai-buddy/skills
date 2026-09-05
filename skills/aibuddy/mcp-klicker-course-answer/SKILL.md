@@ -42,6 +42,10 @@ material as document chunks.
 
 ## Render the result
 
+- First check for `status: "error"`. Its bounded `code` identifies `inactive`, `unauthorized`,
+  `invalid_output`, or `unavailable`; apply the fail-closed rules below. It is not legacy course
+  content. Explain the failure briefly in the user's language without exposing the status object,
+  adding course citations, a chatbot link, or the course disclaimer.
 - For a structured result, accept only `grounded_success`, `didactic_handoff`, and `no_grounding`.
   For a validated version 2 result, present only its `answer`, cited `citations`, and trusted
   `chatbot` name and exact URL; the artifact is `null`. The backend owns validation. Do not expose
