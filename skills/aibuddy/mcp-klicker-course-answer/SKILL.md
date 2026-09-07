@@ -1,11 +1,11 @@
 ---
 name: mcp-klicker-course-answer
-description: Route factual questions grounded in course teaching materials to the configured Klicker course-answer tool; combine independent catalog and policy questions with Course Data and Doc Query, and hand off tutoring.
+description: Answer course-grounded facts, definitions, comparisons and bounded explanations through the configured Klicker binding; combine independent catalog and policy sources, and hand off interactive tutoring.
 ---
 
 # Klicker Course Answers
 
-Use this skill for a factual question grounded in teaching materials for a course with a configured
+Use this skill for a question grounded in teaching materials for a course with a configured
 Klicker course-answer binding. This binding complements other sources; it does not own every
 question mentioning the course. Preserve the boundary around its teaching materials.
 
@@ -18,15 +18,16 @@ material as document chunks.
   catalog descriptions, objectives and prerequisites. Use Doc Query for regulations and policy;
   use other configured sources when their documented scope matches an independent question.
   Load the relevant playbook. Do not call every source by default.
-- Use the configured Klicker binding for direct facts from teaching materials within its supported
-  allowance. Do not treat a catalog overview as conceptual teaching.
-- Treat conceptual teaching, explanations, worked examples, exercises, hints, solutions, diagnosis,
-  grading, feedback, multi-turn learning, and participant-specific requests as out of scope. Direct
-  these requests to the lecturer-governed Klicker course chatbot and do not provide substantive
-  teaching in the AI Buddy response.
-- Split mixed requests into independently answerable parts. Answer supported factual,
-  administrative and policy parts from their relevant sources; hand off only the tutoring or
-  participant-specific part. Send only the supported factual subquestion to Course Answer.
+- Use the configured Klicker binding for facts, definitions, concept comparisons, bounded
+  explanations and short illustrative examples grounded in teaching materials. A request to
+  understand a concept is not by itself a reason to refer the student elsewhere. A factual
+  follow-up or self-contained explanation in a later turn remains eligible.
+- Hand off interactive tutoring, practice with feedback, assigned-exercise hints or solutions,
+  assessment solutions, grading, personalized feedback and participant-specific requests to the
+  lecturer-governed course chatbot. Do not reframe an assigned task as an illustrative example.
+- Split mixed requests into independently answerable parts. Answer supported course-content,
+  administrative and policy parts from their relevant sources; hand off only the excluded part.
+  Send only the supported, self-contained subquestion to Course Answer.
   Determine independence from the original request, never by relabeling restricted teaching
   content as administration.
 
@@ -63,9 +64,14 @@ material as document chunks.
   artifact `null` and apply the presentation rules below, including replacing any embedded
   disclaimer with the current first-course-response rule. Do not wrap it in or reconstruct an
   envelope.
-- Preserve the answer's supported meaning. Write ordinary concise Markdown in the latest user's
-  language: use normal answer paragraphs or bullets and keep each supported citation marker inline
-  with the claim it supports. When citations
+- Preserve the answer's supported meaning and explanatory depth. For a concept question, normally
+  retain two to four useful paragraphs or an equivalent structured answer when supported; keep
+  simple facts short. Do not compress a supported explanation into a one-sentence referral or pad
+  it with outside knowledge. Preserve clearly hypothetical examples as hypothetical applications
+  of evidenced concepts, never as additional facts from the course. Answer first; the final
+  chatbot box offers deeper support rather than replacing an available answer.
+- Write ordinary Markdown in the latest user's language: use paragraphs or bullets and keep each
+  supported citation marker inline with the claim it supports. When citations
   are present, add a dedicated localized `Sources` heading followed by one numbered list item per
   citation. Each item contains only the supplied title and optional locator, preserving both exactly;
   do not expose chunks, excerpts, scores, filenames, retrieval locations, metadata, or internal
