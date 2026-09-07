@@ -5,8 +5,9 @@ description: Discover catalog-backed UZH web resources and refresh eligible page
 
 # AI Buddy Web Index
 
-Use `web_index_pages` for discovery and `web_index_fetch` for current content. Both tools are
-catalog-bound; never treat them as unrestricted web access.
+Use `web_index_catalogs` to discover available catalogs, `web_index_pages` to find pages within
+them, and `web_index_fetch` for current content. These tools are catalog-bound; never treat them
+as unrestricted web access.
 
 When current content matters, use Web Index before any document-retrieval expert.
 
@@ -16,15 +17,22 @@ When current content matters, use Web Index before any document-retrieval expert
 
 Use this default when the user did not supply the resource:
 
-1. Start with `web_index_pages` using only `query`. Put the user's topic, language, and known study
-   or faculty context in the query text. Leave all optional filter fields unset; guessed filter
-   values suppress valid results. Keep any refined retry query-only too.
-2. Select only a result that clearly matches the requested resource. Do not fetch a merely
+1. If an exact catalog ID is already known, use it. Otherwise call `web_index_catalogs` once and
+   select catalogs from the returned producer-owned metadata. Never invent IDs or use a fixed
+   topic-to-catalog routing map.
+2. Search each confidently selected catalog separately with `web_index_pages`, passing its exact
+   `catalog_id` and the same useful query based on the request and returned metadata. Leave other
+   optional filters unset unless the user or returned metadata supplies an exact valid value.
+   If catalog selection is uncertain, relevant metadata is truncated, or the discovery tool is
+   unavailable, use query-only search without guessed filters.
+3. Use plain search terms. Operators such as `site:` do not restrict this index; use the tool's
+   structured filter parameters for restrictions, not operators embedded in `query`.
+4. Select only a result that clearly matches the requested resource. Do not fetch a merely
    plausible or loosely related result.
-3. When current content matters, call `web_index_fetch` with the selected result's `id`.
-4. Answer from the live result and cite its resolved URL.
+5. When current content matters, call `web_index_fetch` with the selected result's `id`, then
+   answer from the live result and cite its resolved URL.
 
-Do not skip step 3 because another tool already returned an answer or because search metadata
+Do not skip the live fetch because another tool already returned an answer or because search metadata
 suggests that live fetch may be unavailable. Call `web_index_fetch` and handle its explicit status.
 
 This includes requests about what is true today, now, currently, or latest; frequently changing
@@ -36,7 +44,7 @@ freshness-sensitive wording.
 When another retrieval result identifies a web page but its date or content appears older than the
 requested period:
 
-1. Search `web_index_pages` for that resource.
+1. Use the catalog-aware discovery workflow above to search for that resource.
 2. Match the result by subject and URL where possible.
 3. Live-fetch the matched result by `id`.
 4. Prefer successful live evidence over the older indexed evidence.
@@ -56,8 +64,8 @@ the supplied URL to guess another resource.
 
 ### Discovery only
 
-Use `web_index_pages` without live fetch when the user wants relevant official websites or when
-freshness does not affect the answer.
+Use the discovery workflow above without live fetch when the user wants relevant official websites
+or when freshness does not affect the answer.
 
 ## Handle results
 
@@ -76,7 +84,7 @@ freshness does not affect the answer.
 - `robots_blocked`: do not retry; report that live verification is unavailable.
 - `page_unavailable`: the page no longer answers at that address. Do not retry and do not fall back
   to indexed content as if it described the page today. Say the resource appears to have moved or
-  been removed, and offer `web_index_pages` results for the current equivalent.
+  been removed, and use the discovery workflow above to find the current equivalent.
 
 Never turn an error, indexed snippet, or irrelevant search result into a current-content claim.
 Keep retries bounded and do not repeat a successful fetch.
@@ -96,6 +104,6 @@ confirmed. The Sources line alone is not sufficient.
 
 ## No-results fallback
 
-After ordinary retrieval is insufficient, use `web_index_pages` to find relevant official UZH
-resources. Present only relevant results with their links. If none are useful, suggest the
+After ordinary retrieval is insufficient, use the discovery workflow above to find relevant official
+UZH resources. Present only relevant results with their links. If none are useful, suggest the
 appropriate human contact or a narrower search rather than inventing an answer.
