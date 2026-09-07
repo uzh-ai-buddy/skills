@@ -14,6 +14,16 @@ description: Course-data MCP playbook for course search, timetables/schedules, l
 ## Out of scope (mandatory)
 - Doctoral/PhD-only course listings: politely refuse (no tool call).
 
+## Complementary course sources
+
+- A Klicker course binding does not replace Course Data for catalog descriptions, objectives,
+  prerequisites, schedules, credits, instructors or assessment details. Use this playbook for
+  those questions, including independent catalog comparisons across courses.
+- For mixed requests, use the relevant Klicker binding only for supported facts from teaching
+  materials, and Doc Query for regulations or policy. Keep each source's claims and citations
+  distinct. A course-content failure or tutoring handoff does not block independent catalog
+  questions; never use catalog retrieval to reconstruct denied teaching material.
+
 ## Tool selection (mandatory)
 
 - **List faculties** → `get_faculties(name_query=...)`

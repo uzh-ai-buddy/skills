@@ -124,6 +124,10 @@ Use `uzh_wb_*` tools for continuing education. Important tools include:
 
 ## Tool chaining patterns
 
+- A Klicker course binding does not replace catalog experts for regulations or policy. Answer
+  independent policy parts of mixed requests even when course-content retrieval fails or tutoring
+  is handed off. Preserve each source's citations and notices; never use catalog retrieval as an
+  alternate path to restricted or denied course teaching material.
 - Course details: course-data first, then the relevant catalog expert for policy or regulation.
 - Exam or assessment policy: `*_courses_exams_expert` plus `*_admissions_regulations_expert` when
   registration, deadlines, or legal rules are involved.
