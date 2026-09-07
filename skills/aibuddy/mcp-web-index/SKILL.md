@@ -32,6 +32,15 @@ Use this default when the user did not supply the resource:
 5. When current content matters, call `web_index_fetch` with the selected result's `id`, then
    answer from the live result and cite its resolved URL.
 
+If the first search returns no clearly relevant resource, try at most two distinct reformulations
+per selected catalog. Preserve the user's subject and constraints, the selected `catalog_id`, and
+any justified filters. Use synonyms or a translation into the language of returned titles and
+descriptions; catalog vocabulary can guide wording but must not replace the requested subject.
+Do not hardcode language, organization, topic, or URL rules. Stop early when a relevant resource
+is found; otherwise report the retrieval gap rather than repeating ineffective searches or
+concluding that the requested offering does not exist. This fallback does not change supplied-URL
+handling or justify fetching a loosely related result.
+
 Do not skip the live fetch because another tool already returned an answer or because search metadata
 suggests that live fetch may be unavailable. Call `web_index_fetch` and handle its explicit status.
 
@@ -69,7 +78,12 @@ or when freshness does not affect the answer.
 
 ## Handle results
 
-- `success`: use the fetched content and cite the returned URL.
+- `success`: inspect whether the fetched content supports the requested subject, provider, and
+  period before using it, then cite the returned URL. A successful fetch proves retrieval, not
+  that every requested fact is present or current. A directory of other providers does not verify
+  the requested provider's offering, and a historical schedule does not verify the current one.
+  If the content is irrelevant or lacks the requested evidence, say what could not be verified;
+  do not use that fetch to validate older indexed claims.
 - `not_live_fetchable`: use indexed evidence only if it directly helps, state that it was not
   verified live, and make no claim about what is true today or currently.
   - Falling back to a document-retrieval expert does not lift this. Indexed content repeating the
@@ -98,9 +112,9 @@ The Sources section labels and the live-content disclaimer follow the output sta
 `fetched_at` as the live-fetch timestamp: it is when the page was last pulled from the site, so
 report it unchanged even when `cache.fetch_hit` is true.
 
-When live verification was attempted and did not succeed, the body of the answer states that plainly
-before the facts it qualifies, and does not describe the information as current, today's, or
-confirmed. The Sources line alone is not sufficient.
+When live verification failed or fetched content did not support the requested current facts, the
+body of the answer states that plainly before the facts it qualifies, and does not describe the
+information as current, today's, or confirmed. The Sources line alone is not sufficient.
 
 ## No-results fallback
 
