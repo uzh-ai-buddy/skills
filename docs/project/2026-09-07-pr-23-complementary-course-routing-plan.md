@@ -1,4 +1,4 @@
-# Complementary course routing
+# PR 23: Complementary course routing
 
 ## Approval summary
 
@@ -44,4 +44,4 @@ Branch `rs/course-answer-complementary-routing` starts at `f4f58ce698700ce2f50cb
 
 Planner approved after clarifying scoped failures, catalog/content separation, mixed citations and ownership. Optional external review unavailable: configured AGY model/effort selection was rejected before review. No optional approval claimed. Existing validator passed for all 23 skills before and after the four playbook edits; diff check and committed-range secret scan pass. Producer inspection confirmed source selection belongs to orchestration; its factual-only allowance remains unchanged.
 
-Slice review: done, no reportable findings on `f4f58ce..ea02378`. Report is in `_local/reviews/2026-09-07-course-routing-slice-review.md`. Main verified partial-failure scoping, source attribution and retained access constraints. Simplifier skipped for instruction-only changes. Integrated final review and draft publication remain pending. No live activation or after-change browser acceptance.
+Slice review: done, no reportable findings on `f4f58ce..ea02378`. Report is in `_local/reviews/2026-09-07-course-routing-slice-review.md`. Main verified partial-failure scoping, source attribution and retained access constraints. Simplifier skipped for instruction-only changes. Integrated final source review passed on `f4f58ce..577ad97`, no findings. Published as [draft PR 23: complementary course routing](https://github.com/uzh-ai-buddy/skills/pull/23). Only this plan identity and publication status changed afterward; prior source verification remains applicable. No live activation or after-change browser acceptance.
