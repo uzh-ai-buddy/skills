@@ -103,6 +103,24 @@ or when freshness does not affect the answer.
 Never turn an error, indexed snippet, or irrelevant search result into a current-content claim.
 Keep retries bounded and do not repeat a successful fetch.
 
+## Ground the answer in source records
+
+Before drafting, match each proposed answer item to its supporting source record, such as a
+table row or a clearly associated detail section. Keep that record's identity, dates, times,
+location, and links together; a shared title alone does not make separate records interchangeable.
+
+Apply the user's conditions to the complete record before selecting it. For a multi-session
+offering, its start is the earliest listed session, not the first session remaining after a cutoff.
+Distinguish separate offerings from distinct course titles when deciding what the user requested.
+
+Copy concrete values from the supporting evidence. Preserve every listed session when all dates
+are requested; do not extend a recurring pattern or fill missing values. Before sending, compare
+each stated date, time, and destination link with the same record and remove unsupported claims.
+
+If `content_truncated` is true or a record is incomplete, use only the facts visibly supported.
+Qualify completeness or ranking when missing content could change it. When fewer items satisfy
+the request than requested, give the supported items and explain the gap instead of filling it.
+
 ## Cite and disclose
 
 Cite the resource you actually selected and fetched. Do not substitute a different page of the same
