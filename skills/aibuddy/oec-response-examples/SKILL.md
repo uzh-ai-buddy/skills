@@ -16,6 +16,14 @@ description: Canonical worked response examples and style templates per query ty
 
 ## How to use (mandatory)
 
+- For a Klicker Course Answer portion, its dedicated playbook owns formatting, source fidelity,
+  the first-course disclaimer and the final chatbot container. Do not load these examples solely
+  for that portion or replace its presentation with an example. For independent administrative
+  or policy portions, apply the relevant examples while keeping all content and notices before
+  the trusted final chatbot container.
+- Finish mixed-source drafting with the Klicker playbook's presentation check, even for
+  `no_grounding` or `didactic_handoff`: retain the trusted final container and access notice,
+  apply the first-course disclaimer rule, and never put the chatbot destination in Sources.
 - Determine the **primary response type** that best matches the user's query.
 - Identify **secondary style needs** (e.g., procedural steps + regulation disclaimer, exploratory
   prose + follow-up question, schedule + currency notice).
@@ -47,4 +55,6 @@ description: Canonical worked response examples and style templates per query ty
 | 13 (uzh) | Money problems | de | Use when a student expresses financial difficulties related to tuition fees. Structure: lead-in, explain the option of applying for a hardship loan, provide links to the financial aid office and resources, offer to help draft an email, then Quellen. | `references/13-uzh-money-problems.md` |
 | 14 (wwf) | Tutorat | de | Use when a student asks about tutoring as part of their studies. Structure: lead-in, explain what a tutorat is and how it works, offer to help with the application process, then Quellen. | `references/14-wwf-tutorat.md` |
 | 15 (wwf) | Eth module recognition | de | Use when a student asks about recognizing ETH modules for their OEC program. Structure: lead-in, explain the general process and criteria for recognition, provide links to the official guidelines and contact information for the recognition office, then Quellen. | `references/15-wwf-eth-module-recognition.md` |
+| 16 (uzh) | Live current content | de | Use when the answer depends on current content AND the live fetch succeeded. Structure: lead-in, the current facts, source labels marking the live fetch and its timestamp, then Quellen closed by the live-content disclaimer. If the fetch did not succeed, this shape does not apply -- follow 17 instead. | `references/16-uzh-live-current-content.md` |
+| 17 (uzh) | Unverified current content | en | Use when the user asks what is currently true about a page or offering -- who it is for now, what applies this semester, what the current rules are -- and the answer rests on content that was not verified live. Structure: state up front that the information could not be verified live, give the indexed facts qualified as such, point to the official page, then Sources labelled indexed. | `references/17-uzh-unverified-current-content.md` |
 <!-- END:AUTO-GENERATED -->

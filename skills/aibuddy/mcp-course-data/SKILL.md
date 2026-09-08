@@ -14,6 +14,17 @@ description: Course-data MCP playbook for course search, timetables/schedules, l
 ## Out of scope (mandatory)
 - Doctoral/PhD-only course listings: politely refuse (no tool call).
 
+## Complementary course sources
+
+- A Klicker course binding does not replace Course Data for catalog descriptions, objectives,
+  prerequisites, schedules, credits, instructors or assessment details. Use this playbook for
+  those questions, including independent catalog comparisons across courses.
+- For mixed requests, use the relevant Klicker binding for supported facts, bounded explanations
+  and illustrative examples from teaching materials, and Doc Query for regulations or policy.
+  Follow the Klicker playbook's teaching boundaries. Keep each source's claims and citations
+  distinct. A course-content failure or tutoring handoff does not block independent catalog
+  questions; never use catalog retrieval to reconstruct denied teaching material.
+
 ## Tool selection (mandatory)
 
 - **List faculties** → `get_faculties(name_query=...)`
@@ -46,9 +57,21 @@ Mapping from student context:
 
 ## Course search specificity (mandatory)
 
+For a named course without an ID, start with `search_courses_by_similarity(query=...)`.
+`field_name` means a study field, not a course title. Do not infer degree or field filters
+from words in the title; use only filters established by the user or returned catalog data.
+
 When searching by similarity, ensure the result is an **exact match**. If not, ask the user to
 clarify the course name or provide a course code. Example: if the user asks for "Banking" and the
 tool returns "Banking and Finance", do not assume the result is valid.
+
+For each unresolved named course, allow at most one corrected search after the initial search.
+If neither identifies the course, stop that lookup, state what could not be confirmed, and ask
+for a course code or official VVZ link. Do not continue through faculty enumeration, repeated
+filter variations, Cypher, Doc Query or web searches to resolve the same missing course.
+This limit does not block detail lookup for an identified course, requested listing pagination,
+or independent policy and teaching-material questions. Never imply a missing result proves
+the course does not exist or use another semester as confirmation of the requested semester.
 
 ## Full details usage (mandatory)
 
