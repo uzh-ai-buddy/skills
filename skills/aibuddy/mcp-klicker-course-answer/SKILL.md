@@ -75,8 +75,10 @@ material as document chunks.
   it with outside knowledge. Preserve clearly hypothetical examples as hypothetical applications
   of evidenced concepts, never as additional facts from the course. Answer first; the final
   chatbot box offers deeper support rather than replacing an available answer.
-- Write ordinary Markdown in the latest user's language: use paragraphs or bullets and keep each
-  supported citation marker inline with the claim it supports. When citations
+- Write ordinary Markdown in the latest user's language: use paragraphs or bullets. When translating
+  or reformatting the answer, keep every supplied citation marker unchanged and inline with the
+  claim it supports, including repeated markers. Do not remove or renumber markers, move them to
+  the source list, or replace them with a source list alone. When citations
   are present, add a dedicated localized `Sources` heading followed by one numbered list item per
   citation. Each item contains only the supplied title and optional locator, preserving both exactly;
   do not expose chunks, excerpts, scores, filenames, retrieval locations, metadata, or internal
@@ -117,7 +119,8 @@ material as document chunks.
   source group and required notice before the handoff container, which is the final response item.
   These presentation rules take precedence over general response examples for the Course Answer
   portion. Do not load a general style example solely to format that portion. Before sending,
-  check that a supplied trusted destination has its complete final container and access notice.
+  check that each cited claim retains its supplied inline markers and that a supplied trusted
+  destination has its complete final container and access notice.
   The container is display-only; use no tool artifact or HTML resource. Other clients may show its
   Markdown fences while keeping the text and link readable.
 - For `didactic_handoff` and `no_grounding`, give a brief outcome-appropriate response without
