@@ -16,6 +16,14 @@ description: Canonical worked response examples and style templates per query ty
 
 ## How to use (mandatory)
 
+- For a Klicker Course Answer portion, its dedicated playbook owns formatting, source fidelity,
+  the first-course disclaimer and the final chatbot container. Do not load these examples solely
+  for that portion or replace its presentation with an example. For independent administrative
+  or policy portions, apply the relevant examples while keeping all content and notices before
+  the trusted final chatbot container.
+- Finish mixed-source drafting with the Klicker playbook's presentation check, even for
+  `no_grounding` or `didactic_handoff`: retain the trusted final container and access notice,
+  apply the first-course disclaimer rule, and never put the chatbot destination in Sources.
 - Determine the **primary response type** that best matches the user's query.
 - Identify **secondary style needs** (e.g., procedural steps + regulation disclaimer, exploratory
   prose + follow-up question, schedule + currency notice).
