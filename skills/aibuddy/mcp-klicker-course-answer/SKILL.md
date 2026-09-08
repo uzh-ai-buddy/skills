@@ -80,7 +80,10 @@ material as document chunks.
   claim it supports, including repeated markers. Do not remove or renumber markers, move them to
   the source list, or replace them with a source list alone. When citations
   are present, add a dedicated localized `Sources` heading followed by one numbered list item per
-  citation. Each item contains only the supplied title and optional locator, preserving both exactly;
+  citation. Each item contains only the supplied title and optional locator, preserving both exactly.
+  Use plain source titles without surrounding square brackets. Include every supplied page number,
+  timestamp, section or other locator; never invent a missing locator. Keep inline citation markers
+  such as `[1]` unchanged;
   do not expose chunks, excerpts, scores, filenames, retrieval locations, metadata, or internal
   IDs. Do not make unsupported course claims or invent source URLs.
 - For mixed-source answers, separate the Course Answer portion and its sources from catalog or
