@@ -33,6 +33,9 @@ description: Canonical worked response examples and style templates per query ty
   - Typical: **1–3 examples**; read more only if the user question is clearly multi-part.
 - Use examples strictly as **structure and phrasing templates**. All factual content must still
   come from tool outputs.
+- Follow `response-formatting` for presentation. Examples illustrate possible shapes, not required
+  headings, extra facts or closing offers. Choose one primary shape; borrow only necessary details
+  from secondary examples. Do not concatenate their summaries, notices or source sections.
 
 ## Example index
 
