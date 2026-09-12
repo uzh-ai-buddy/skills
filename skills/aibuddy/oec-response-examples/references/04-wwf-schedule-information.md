@@ -14,11 +14,7 @@ Hier findest du alle aktuellen Details zu Zeitpunkt und Ort für den Kurs `Banki
 
 - **Semester**: Der Kurs `Banking and Finance I (L+E)` wird jeweils im **Herbstsemester** angeboten. Die erste Veranstaltung ist am **15. September 2025**, die letzte am **19. Dezember 2025**.
 - **Zeitpunkt**: Laut offiziellem Vorlesungsverzeichnis findet die Veranstaltung jeweils am **Freitag von 14:00–15:45 Uhr** statt.
-- **Räume:** Der Kurs nutzt verschiedene Räume, vor allem die grossen Hörsäle:
-  - KOL-G-201 AULA
-  - KOL-H-312
-  - KOH-B-10
-  - KOL-G-217 (vereinzelt)
+- **Räume:** KOL-G-201 AULA, KOL-H-312, KOH-B-10 und vereinzelt KOL-G-217.
 
 - **Prüfung:** **Mittwoch, 18. Dezember 2024 von 08:00–11:00 Uhr** (abweichender Wochentag)
 

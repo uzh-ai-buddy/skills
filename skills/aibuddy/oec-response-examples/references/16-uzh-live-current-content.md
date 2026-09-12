@@ -13,8 +13,7 @@ Lass mich die aktuellen Öffnungszeiten nachschauen.
 Die **Hauptbibliothek Universität Zürich – Zentrum** ist heute bis **22:00 Uhr** geöffnet. Die
 Ausleihe schliesst bereits um **21:45 Uhr**, plane den Bezug von Büchern also etwas früher ein.
 
-An Sonn- und Feiertagen gelten abweichende Zeiten. Wenn du für einen bestimmten Tag planst, sage mir
-welchen, dann schaue ich diesen nach.
+An Sonn- und Feiertagen gelten abweichende Zeiten.
 
 ---
 
