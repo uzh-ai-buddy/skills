@@ -1,6 +1,6 @@
 ---
 name: mcp-klicker-course-answer
-description: Answer questions from configured Klicker course materials; combine independent catalog and policy sources, and offer the course chatbot for interactive support.
+description: Answer questions from configured Klicker course materials across one or more bound course chatbots; combine independent catalog and policy sources, and offer the course chatbot for interactive support.
 ---
 
 # Klicker Course Answers
@@ -35,12 +35,22 @@ material as document chunks.
 ## Call the configured binding
 
 - Course-answer bindings may be offered directly or through a gateway prefix; never invent or
-  construct a tool name.
-- Call only the binding for the clearly relevant course. If the course is not clear, ask the user to
-  name it; do not guess or call another tool.
-- Never combine course-answer bindings or use one binding to answer about another course.
-  Hand off cross-course teaching-content comparisons without calling a binding. Independent
-  catalog comparisons can still use Course Data.
+  construct a tool name. Choose only among the bindings that are actually available in this
+  conversation; each binding's name and description identifies the course it serves.
+- One course per question is the default. When the question names a course or clearly matches one
+  bound course, call only that binding. If several bound courses could match, prefer the course
+  the user's wording, prior answers or follow-ups point to; Course Data cannot decide this and
+  must not be used to rule a binding in or out.
+- Call several bindings only when the question explicitly spans or compares those bound courses.
+  Call each relevant binding separately with its own question, and present each course's answer
+  with its own sources, disclaimer and chatbot container. Limit cross-course calls to the clearly
+  relevant courses; if more than a small number of bound courses are plausible sources, ask the
+  user to name the courses instead of calling many bindings.
+- If the question's subject matches no bound course at all, say briefly that the available course
+  answers do not cover that course and offer the closest bound course only if the user wants it.
+  Never answer a question about a bound course from general knowledge or other sources instead of
+  calling its binding, and never decline or redirect a question about a bound course without
+  either calling one of its bindings or asking the user to clarify which course is meant.
 - Use the selected binding for its teaching-material subquestion, not generic retrieval or general
   knowledge. Other tools may answer independent catalog, administrative or policy subquestions.
 - Pass only `question` and optional `locale` (`de` or `en`) to the selected binding. Keep the final
@@ -93,7 +103,9 @@ material as document chunks.
   state relevant semesters or validity dates; flag conflicting evidence rather than silently
   treating teaching materials as current administrative authority.
 - When a trusted chatbot destination is supplied, close with one `:::klicker-chatbot` Markdown
-  container. Inside it, use exactly three paragraphs separated by blank lines: the plain
+  container per course that contributed a course answer; a single-course answer has exactly one
+  container, and a cross-course answer places the containers adjacent at the end, one per course.
+  Inside each container, use exactly three paragraphs separated by blank lines: the plain
   course/chatbot name, one Markdown link labelled in the user's language with the meaning
   `Open course chatbot →`, and the separate-access notice below.
   End the container with `:::` on its own line. Keep the name and action label within 160 characters
