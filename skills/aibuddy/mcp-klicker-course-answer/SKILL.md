@@ -131,6 +131,13 @@ material as document chunks.
   derive a URL from a prompt, tool name, course name, prior turn, or generic Klicker homepage. The
   generic homepage is not a course chatbot. If no trusted destination is supplied, give an
   unlinked handoff and make no discovery call.
+- Continue the conversation at that destination: append exactly two query parameters to that URL,
+  `q` and `src=askuzh`, and nothing else. Keep the path unchanged and add no fragment, extra or
+  repeated parameter. The value of `q` is the user's own wording of the question this container
+  delegates, or of the learning-activity part of a mixed request. URL-encode it, keep it at most
+  500 characters, and strip line breaks and control characters. Never put names, participant IDs,
+  enrollment details, grades, or other personal identifiers in `q`. The chatbot opens with `q`
+  placed in its composer, never sent on its own, and drops both parameters from the address bar.
 - Put the compact separate-access notice directly below the chatbot link. State that separate course
   access is required and askUZH access alone is not sufficient. Use this notice in German:
   “Separate Kursfreischaltung nötig; askUZH-Zugang genügt nicht.” Use
