@@ -120,9 +120,11 @@ material as document chunks.
 - When a trusted chatbot destination is supplied, close with one `:::klicker-chatbot` Markdown
   container per course that contributed a course answer; a single-course answer has exactly one
   container, and a cross-course answer places the containers adjacent at the end, one per course.
-  Inside each container, use exactly three paragraphs separated by blank lines: the plain
-  course/chatbot name, one Markdown link labelled in the user's language with the meaning
-  `Open course chatbot →`, and the separate-access notice below.
+  Inside each container, use exactly three parts, each on its own line and separated by blank
+  lines: the plain course/chatbot name, one Markdown link labelled in the user's language with the
+  meaning `Open course chatbot →`, and the separate-access notice below. The link is alone on its
+  line and the notice starts on its own line; never place two parts on the same line or in the same
+  paragraph.
   End the container with `:::` on its own line. Keep the name and action label within 160 characters
   each and the notice within 400; use plain text without nested formatting or directive attributes.
   Link only to
